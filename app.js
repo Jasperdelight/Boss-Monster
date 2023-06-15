@@ -128,5 +128,5 @@ function bossLevel() {
 
 damageBoss();
 
-// setInterval(bossCounter, 5000)
+setInterval(bossCounter, 5000)
 
