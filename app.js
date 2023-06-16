@@ -26,11 +26,20 @@ let money = 0
 totalDamage = 0
 
 function buyPot() {
-  heroes[0].health = 50
-  heroes[1].health = 50
-  drawFlintHP()
-  drawSlateHP()
+  if (money >= 75) {
 
+    money -= 75
+    heroes[0].health += 50
+    heroes[1].health += 50
+    drawFlintHP()
+    drawSlateHP()
+    drawMoney()
+  }
+}
+
+function drawMoney() {
+  let gold = document.getElementById('loot')
+  gold.innerText = money
 }
 
 function makeLoot() {
@@ -47,6 +56,10 @@ function drawBossHP() {
   let bossHP = document.getElementById('bossHP')
   bossHP.innerText = boss.health
   bossLevel()
+}
+function drawBossLvl() {
+  let bossLvl = document.getElementById('bossLvl')
+  bossLvl.innerText = boss.level
 }
 
 
@@ -131,9 +144,11 @@ function bossLevel() {
     boss.level *= 2
     boss.loot *= 2
     makeLoot()
+    drawBossLvl()
   }
 }
 
+drawBossLvl();
 damageBoss();
 
 setInterval(bossCounter, 5000)
