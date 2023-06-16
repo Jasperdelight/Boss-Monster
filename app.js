@@ -25,6 +25,14 @@ const boss = {
 let money = 0
 totalDamage = 0
 
+function buyPot() {
+  heroes[0].health = 50
+  heroes[1].health = 50
+  drawFlintHP()
+  drawSlateHP()
+
+}
+
 function makeLoot() {
   let gold = document.getElementById('loot')
   if (boss.health >= 0) {
